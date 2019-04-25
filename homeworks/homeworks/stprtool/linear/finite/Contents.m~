@@ -1,0 +1,18 @@
+% Algorithms learning linear classifiers from finite vector sets.
+%
+% ekozinec   - Kozinec's algorithm for eps-optimal separating hyperplane.  
+% ekozinec2  - Kozinec's algorithm for eps-optimal separating hyperplane. 
+% lindemo    - Demo on the algorithms learning linear classifiers.        
+% perceptron - Perceptron learning rule.        
+% testdich   - Creates randomly binary and linearly separable data.
+%
+
+% About: Statistical Pattern Recognition Toolbox
+% (C) 1999-2003, Written by Vojtech Franc and Vaclav Hlavac
+% <a href="http://www.cvut.cz">Czech Technical University Prague</a>
+% <a href="http://www.feld.cvut.cz">Faculty of Electrical Engineering</a>
+% <a href="http://cmp.felk.cvut.cz">Center for Machine Perception</a>
+
+% Modifications:
+%  13-Feb-2003, VF
+

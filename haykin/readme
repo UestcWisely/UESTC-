@@ -1,0 +1,173 @@
+--------------------
+Notes on routines
+--------------------
+
+These M-files are User Contributed Routines which are being redistributed
+by The MathWorks, upon request, on an "as is" basis.  A User Contributed
+Routine is not a product of The MathWorks, Inc. and The MathWorks assumes
+no responsibility for any errors that may exist in these routines.
+
+These files were created under Matlab 5.1 and use no specific toolboxes.
+
+Examples of running the routines are given below.
+
+Some of the routines have been incorporated into "demo" programs. The
+demo programs are simple scripts that call the associated M-files.
+
+All routines written by Hugh Pasika except for the SVM which was originally
+composed by Antonio Artes (that's why the variables are all in Spanish) and
+smoothed a bit by Hugh Pasika and the ICA mfile which was written by Himesh
+Madhuranath.
+
+pasika@soma.mcmaster.ca
+
+--------------------------------------------
+   Back Propagation
+   (section 4.8)
+--------------------------------------------
+
+% 1. make the data
+   P=mk_data(500);
+
+% 2. start the backprop algorithm
+   [W1, b1, W2, b2, ep_err, a, end_ep]=bpm_train(P, 4, 2, 2, .1, .5, 500, 0,0,0,0,0);
+
+% 3. check the decision boundary
+   bpm_dec_bnds(W1, b1, W2, b2, .1);
+
+% 4. make a test set
+   T=mk_data(10000);
+
+% 5. check the accuracy
+   [cor, uncor]=bpm_test(W1,b1,W2,b2,T);
+
+% 6. plot Bayesian decision boundary
+   c=pl_circ([-2/3 0], 2.34, .01, 1);
+
+--------------------------------------------
+   Radial Basis Functions
+   (section 5.14)
+--------------------------------------------
+
+% 1. Make data set
+   P = mk_data(200);
+
+% 2. Train the RBF
+   w = rbf(P(1:100,1:2), P(:,1:2), P(1:100,3:4), 4, 1);
+
+% 3. make a test set
+   T = mk_data(500);
+
+% 4. get network outputs with test set
+   rbfout = rbf_test(w,T(:,1:2),P(:,1:2),4);
+
+% 5. determine percent correct
+   rbf_correct(rbfout, T(:,5));
+
+% 6. plot decision boundary
+   rbf_db(w,P(:,1:2),4,.2)
+
+--------------------------------------------
+   Support Vector Machine
+   (section 6.4)
+--------------------------------------------
+
+% 1. make data set
+   P = mk_data(200);
+
+% 2. run the SVM routine
+   [pesos,vect,b] = svm_rbf(P, 8, 1000, .01, .1);
+
+% 3. make a test set
+   T = mk_data(200);
+
+% 4. test data
+   [c u] = svm_test(T, pesos, vect, b, 8);
+
+% 5. plot decision surface
+   svm_dec_bnd(pesos, vect, b, 8)
+
+
+-------------------------------------------------
+   Self Organizing Map (2d data, 2d map)
+   (section 9.6)
+-------------------------------------------------
+
+% 1. run the demo
+   som_2d_demo
+
+% plotting between iterations has been taken out but can easily be added
+% by uncommenting line 95 in som_2d.m "som_pl_map(W,1,2); drawnow"
+
+-------------------------------------------------
+   Self Organizing Map (2d data, 1d map)
+   (section 9.6)
+-------------------------------------------------
+
+% 1. make the data
+   P=rand(1000,2);
+
+% 2. ordering phase
+   [W1s p1]=som_1d(P,200,10, [.1 18]);
+
+% 3. convergence phase
+   [W2s p2]=som_1d(P,200,50, [p1(1) .001 p1(2) 0],W1s);
+
+--------------------------------------------
+   Generalized Hebbian Algorithm
+   (section 8.6)
+--------------------------------------------
+
+% 1. load the image data
+   load gha_data
+
+% 2. set the colormap
+   colormap(gray(256))
+
+% 3. run the algorithm
+   W=gha_getweights(parn,2000,8,.0001);
+
+% 4. determine mask coefficients
+%    display masks and reconstructed image with unquantized coeffs
+   c=gha_getcoeffs(parn,W,1);
+
+% 5. quantize the coeffecients according user specified bit rate
+%    and recompose the image
+   [I, st, xla] = gha_quantcoeffs(c,W,parn,[7 7 6 4 3 3 2 2]);
+
+% 6. display the reconstructed image
+   subplot(2,2,4) 
+   pim(I)
+
+--------------------------------------------
+   Independent Component Analysis
+   (section 10.12)
+--------------------------------------------
+
+This example runs as a stand alone script.
+
+% 1. ica
+
+--------------------------------------------
+   Brain State in a Box
+   (section 14.11)
+--------------------------------------------
+
+% 1. run the routine
+   c=bsb([-.3 -.7], .9);
+
+% 2. subsequent plots will be held
+   c=bsb([-.1 -.7], .9);
+
+--------------------------------------------
+   Hopfield Network
+   (section 14.8)
+--------------------------------------------
+
+% 1. run the demo
+   hop_demo
+
+
+
+
+

@@ -1,0 +1,106 @@
+function model = minball(X,options)
+% MINBALL Minimal enclosing ball in kernel feature space. 
+%
+% Synopsis:
+%  model = minball(X)
+%  model = minball(X,options)
+%
+% Description:
+%  It computes center and radius of the minimal ball
+%  enclosing data X mapped into a feature space induced 
+%  by a given kernel. The problem leads to a QP problem which is 
+%  solve by 'quadprog' of the MATLAB Optimization toolbox.
+% 
+% Input:
+%  X [dim x num_data] Input data.
+%  options [struct] Control parameters:
+%   .ker [string] Kernel identifier (default 'linear'). See 'help kernel'.
+%   .arg [1 x nargs] Kernel arguments.
+%   .eps [1x1] Multipliers less then eps are set to zero (default 1e-12).
+%   .mu [1x1] Regularization constant given to diagonal of the 
+%     kernel matrix (default 1e-12).
+%
+% Output:
+%  model [struct] Center of the ball in the kernel feature space:
+%   .sv.X [dim x nsv] Data determining the center.
+%   .Alpha [nsv x 1] Data weights.
+%   .r [1x1] Radius of the minimal enclosing ball.
+%   .b [1x1] Squared norm of the center equal to Alpha'*K*Alpha.
+%   .options [struct] Copy of used options.
+%
+% Example:
+%  data = load('riply_trn');
+%  options = struct('ker','linear','arg',1);
+%  model = minball(data.X,options);
+%  [Ax,Ay] = meshgrid(linspace(-5,5,100),linspace(-5,5,100));
+%  dist = kdist([Ax(:)';Ay(:)'],model);
+%  figure; hold on; 
+%  ppatterns(data.X); ppatterns(model.sv.X,'ro',12);
+%  contour( Ax, Ay, reshape(dist,100,100),[model.r model.r]);
+%
+% See also 
+%  KDIST.
+%
+
+% About: Statistical Pattern Recognition Toolbox
+% (C) 1999-2003, Written by Vojtech Franc and Vaclav Hlavac
+% <a href="http://www.cvut.cz">Czech Technical University Prague</a>
+% <a href="http://www.feld.cvut.cz">Faculty of Electrical Engineering</a>
+% <a href="http://cmp.felk.cvut.cz">Center for Machine Perception</a>
+
+% Modifications:
+% 25-aug-2004, VF, added model.fun = 'kdist' and .diag_add changed to .mu 
+% 16-may-2004, VF
+% 15-jun-2002, VF
+
+% process input arguments
+%-----------------------------------------
+if nargin < 2, options = []; else options=c2s(options); end
+if ~isfield(options,'ker'), options.ker = 'linear'; end
+if ~isfield(options,'arg'), options.arg = 1; end
+if ~isfield(options,'eps'), options.eps = 1e-12; end
+if ~isfield(options,'mu'), options.mu = 1e-12; end
+[dim,num_data] = size(X);
+
+% kernel matrix with regularization
+%-----------------------------------------
+K = kernel( X, options.ker, options.arg )+...
+    eye(num_data,num_data)*options.mu;
+
+% set up QP problem
+%-----------------------------------------
+f = -diag(K);
+
+H=2*K;
+
+Aeq = ones(1,num_data);
+beq = 1;
+
+LB = zeros(num_data,1);
+UB = inf*ones(num_data,1);
+
+% optimization
+%----------------------------
+qp_options=optimset('Display','off');
+model.Alpha=quadprog(H,f,[],[],Aeq,beq,LB,UB,zeros(num_data,1),qp_options);
+
+% take non-zero Alpha's
+%---------------------
+inx= find(model.Alpha > options.eps);
+model.Alpha = model.Alpha(inx);
+
+% compute radius
+%---------------------
+K = K(inx,inx);
+model.b = model.Alpha'*K*model.Alpha;
+model.r = sum( sqrt( diag(K) - 2*K*model.Alpha + model.b ))/length(inx);
+
+% setup model
+%---------------------
+model.sv.X= X(:,inx);
+model.nsv = length(inx);
+model.options=options;
+model.fun = 'kdist';
+
+return;
+% EOF

@@ -1,0 +1,38 @@
+clear
+clc
+%该例子用的是早发精分患者的AAL90(4005条边)模板的全脑功能连接。
+%PS：这个例子中的数据可以换成任何数据（数据的格式换成人数*特征即可）
+M=[100,100];%RBM的层数
+N=2;%神经网络的输出层数，这里用的是二分类所以填成2就可以。
+%说明：该例子和SAE一样，先用DBN降维，然后用DBN（就是几层神经网络，但是权重更新方式不一样）的网络去初始化神经网络
+%这么做就可以让后来层数比较深的网络，减少训练的负担。
+load('fcdata')
+
+%train dbn
+dbn.sizes =M;
+
+%下面这两个和SAE的模型训练方法一样，都是为了提高模型稳定性，磁共振数据量少，可以不用修改。
+opts.numepochs =   1;
+opts.batchsize = 1;
+
+opts.momentum  =   0;%优化算法参数，可以不用管
+opts.alpha     =   1;%学习率权重更新速度
+
+%模型声明及训练
+dbn = dbnsetup(dbn, train_x, opts);
+dbn = dbntrain(dbn, train_x, opts);
+%这部分以上可以理解为一个降维的过程，当然也可以直接让RBN的输出一维的标签【100，】，但是效果肯定不理想。
+
+
+
+%unfold dbn to nn
+nn = dbnunfoldtonn(dbn, N);
+nn.activation_function = 'sigm';
+
+%train nn
+opts.numepochs =  1;
+opts.batchsize = 100;
+nn = nntrain(nn, train_x, train_y, opts);
+[er, bad] = nntest(nn, test_x, test_y);
+
+assert(er < 0.10, 'Too big error');

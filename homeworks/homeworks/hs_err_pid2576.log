@@ -1,0 +1,183 @@
+
+An unexpected exception has been detected in native code outside the VM.
+Unexpected Signal : EXCEPTION_ACCESS_VIOLATION (0xc0000005) occurred at PC=0x76303E44
+Function=ImmGetCandidateWindow+0x291
+Library=C:\WINDOWS\system32\IMM32.DLL
+
+Current Java thread:
+	at sun.awt.windows.WToolkit.eventLoop(Native Method)
+	at sun.awt.windows.WToolkit.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+Dynamic libraries:
+0x00400000 - 0x004D8000 	D:\liaowei\bin\win32\MATLAB.exe
+0x7C920000 - 0x7C9B4000 	C:\WINDOWS\system32\ntdll.dll
+0x7C800000 - 0x7C91C000 	C:\WINDOWS\system32\kernel32.dll
+0x792F0000 - 0x7938E000 	D:\liaowei\bin\win32\mcr.dll
+0x77D10000 - 0x77D9F000 	C:\WINDOWS\system32\USER32.dll
+0x77EF0000 - 0x77F37000 	C:\WINDOWS\system32\GDI32.dll
+0x76320000 - 0x76367000 	C:\WINDOWS\system32\comdlg32.dll
+0x77F40000 - 0x77FB6000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x77DA0000 - 0x77E49000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77E50000 - 0x77EE1000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77BE0000 - 0x77C38000 	C:\WINDOWS\system32\msvcrt.dll
+0x5D170000 - 0x5D207000 	C:\WINDOWS\system32\COMCTL32.dll
+0x7D590000 - 0x7DD82000 	C:\WINDOWS\system32\SHELL32.dll
+0x76990000 - 0x76ACD000 	C:\WINDOWS\system32\ole32.dll
+0x78800000 - 0x78815000 	D:\liaowei\bin\win32\mpath.dll
+0x78700000 - 0x78788000 	D:\liaowei\bin\win32\libut.dll
+0x76C60000 - 0x76C88000 	C:\WINDOWS\system32\imagehlp.dll
+0x78500000 - 0x78576000 	D:\liaowei\bin\win32\icuuc24.dll
+0x78430000 - 0x78435000 	D:\liaowei\bin\win32\icudt24l.dll
+0x7C340000 - 0x7C396000 	D:\liaowei\bin\win32\MSVCR71.dll
+0x78440000 - 0x784C2000 	D:\liaowei\bin\win32\icuin24.dll
+0x784D0000 - 0x784DD000 	D:\liaowei\bin\win32\icuio24.dll
+0x7C3A0000 - 0x7C41B000 	D:\liaowei\bin\win32\MSVCP71.dll
+0x770F0000 - 0x7717C000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x79AC0000 - 0x79AD1000 	D:\liaowei\bin\win32\mwoles05.dll
+0x787F0000 - 0x787FE000 	D:\liaowei\bin\win32\mvalue.dll
+0x78790000 - 0x787C5000 	D:\liaowei\bin\win32\libmx.dll
+0x786E0000 - 0x786F2000 	D:\liaowei\bin\win32\libz.dll
+0x79B70000 - 0x79BA5000 	D:\liaowei\bin\win32\comcli.dll
+0x78930000 - 0x78993000 	D:\liaowei\bin\win32\m_dispatcher.dll
+0x78580000 - 0x786D6000 	D:\liaowei\bin\win32\xerces-c_2_1_0.dll
+0x78F70000 - 0x78FD4000 	D:\liaowei\bin\win32\libmwservices.dll
+0x78F50000 - 0x78F61000 	D:\liaowei\bin\win32\datasvcs.dll
+0x788B0000 - 0x7892D000 	D:\liaowei\bin\win32\udd.dll
+0x78820000 - 0x788A5000 	D:\liaowei\bin\win32\mcos.dll
+0x79020000 - 0x7909B000 	D:\liaowei\bin\win32\uiw.dll
+0x792C0000 - 0x792EA000 	D:\liaowei\bin\win32\libmwhardcopy.dll
+0x789A0000 - 0x78C28000 	D:\liaowei\bin\win32\m_interpreter.dll
+0x78E30000 - 0x78E87000 	D:\liaowei\bin\win32\m_ir.dll
+0x787D0000 - 0x787DE000 	D:\liaowei\bin\win32\libmex.dll
+0x78ED0000 - 0x78F43000 	D:\liaowei\bin\win32\mlib.dll
+0x78C30000 - 0x78E29000 	D:\liaowei\bin\win32\m_parser.dll
+0x78EC0000 - 0x78ECA000 	D:\liaowei\bin\win32\ir_xfmr.dll
+0x787E0000 - 0x787E9000 	D:\liaowei\bin\win32\libmat.dll
+0x78EB0000 - 0x78EBF000 	D:\liaowei\bin\win32\m_pcodeio.dll
+0x78E90000 - 0x78EA1000 	D:\liaowei\bin\win32\m_pcodegen.dll
+0x790D0000 - 0x79145000 	D:\liaowei\bin\win32\libmwgui.dll
+0x79BF0000 - 0x79D18000 	D:\liaowei\bin\win32\bridge.dll
+0x77BD0000 - 0x77BD8000 	C:\WINDOWS\system32\VERSION.dll
+0x79B40000 - 0x79B6B000 	D:\liaowei\bin\win32\jmi.dll
+0x79150000 - 0x79291000 	D:\liaowei\bin\win32\hg.dll
+0x790A0000 - 0x790BA000 	D:\liaowei\bin\win32\libuij.dll
+0x79390000 - 0x794AF000 	D:\liaowei\bin\win32\numerics.dll
+0x794F0000 - 0x79576000 	D:\liaowei\bin\win32\libfftw3.dll
+0x79580000 - 0x79601000 	D:\liaowei\bin\win32\libfftw3f.dll
+0x794B0000 - 0x794CC000 	D:\liaowei\bin\win32\libmwlapack.dll
+0x79A80000 - 0x79AB2000 	D:\liaowei\bin\win32\libmwumfpack.dll
+0x7C140000 - 0x7C243000 	D:\liaowei\bin\win32\MFC71.DLL
+0x72F70000 - 0x72F96000 	C:\WINDOWS\system32\WINSPOOL.DRV
+0x79AE0000 - 0x79B31000 	D:\liaowei\bin\win32\udd_mi.dll
+0x5FDD0000 - 0x5FE24000 	C:\WINDOWS\system32\NETAPI32.dll
+0x71A20000 - 0x71A37000 	C:\WINDOWS\system32\WS2_32.dll
+0x71A10000 - 0x71A18000 	C:\WINDOWS\system32\WS2HELP.dll
+0x790C0000 - 0x790C5000 	D:\liaowei\bin\win32\uinone.dll
+0x79BB0000 - 0x79BB9000 	D:\liaowei\bin\win32\mlautoregister.dll
+0x76300000 - 0x7631D000 	C:\WINDOWS\system32\IMM32.DLL
+0x62C20000 - 0x62C29000 	C:\WINDOWS\system32\LPK.DLL
+0x73FA0000 - 0x7400B000 	C:\WINDOWS\system32\USP10.dll
+0x77180000 - 0x77282000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2180_x-ww_a84f1ff9\comctl32.dll
+0x7A7B0000 - 0x7AA53000 	D:\liaowei\bin\win32\atlas_Athlon.dll
+0x79610000 - 0x79A64000 	D:\liaowei\bin\win32\lapack.dll
+0x7C040000 - 0x7C0B5000 	D:\liaowei\bin\win32\DFORRT.dll
+0x7C300000 - 0x7C30A000 	D:\liaowei\bin\win32\MFC71CHS.DLL
+0x5ADC0000 - 0x5ADF7000 	C:\WINDOWS\system32\uxtheme.dll
+0x74680000 - 0x746CB000 	C:\WINDOWS\system32\MSCTF.dll
+0x53000000 - 0x53008000 	C:\PROGRA~1\Yahoo!\ASSIST~1\Yhelper.dll
+0x69000000 - 0x69673000 	C:\WINDOWS\system32\atioglxx.dll
+0x78100000 - 0x78236000 	D:\liaowei\sys\java\jre\win32\jre1.4.2\bin\client\jvm.dll
+0x76B10000 - 0x76B3A000 	C:\WINDOWS\system32\WINMM.dll
+0x73640000 - 0x7366E000 	C:\WINDOWS\system32\msctfime.ime
+0x78240000 - 0x78247000 	D:\liaowei\sys\java\jre\win32\jre1.4.2\bin\hpi.dll
+0x78250000 - 0x7825E000 	D:\liaowei\sys\java\jre\win32\jre1.4.2\bin\verify.dll
+0x78260000 - 0x78278000 	D:\liaowei\sys\java\jre\win32\jre1.4.2\bin\java.dll
+0x78280000 - 0x7828D000 	D:\liaowei\sys\java\jre\win32\jre1.4.2\bin\zip.dll
+0x78290000 - 0x7839A000 	D:\liaowei\sys\java\jre\win32\jre1.4.2\bin\awt.dll
+0x783E0000 - 0x78430000 	D:\liaowei\sys\java\jre\win32\jre1.4.2\bin\fontmanager.dll
+0x79D20000 - 0x79D32000 	D:\liaowei\bin\win32\jmi_mi.dll
+0x05FD0000 - 0x0619C000 	C:\WINDOWS\resources\Themes\SlateDARK\SlateDARK.msstyles
+0x7A780000 - 0x7A78A000 	D:\liaowei\bin\win32\nativejava.dll
+0x7A790000 - 0x7A797000 	D:\liaowei\bin\win32\nativelex.dll
+0x792A0000 - 0x792BD000 	D:\liaowei\bin\win32\glren.dll
+0x5EF10000 - 0x5EFDC000 	C:\WINDOWS\system32\OPENGL32.dll
+0x68E20000 - 0x68E40000 	C:\WINDOWS\system32\GLU32.dll
+0x736D0000 - 0x73719000 	C:\WINDOWS\system32\DDRAW.dll
+0x73B30000 - 0x73B36000 	C:\WINDOWS\system32\DCIMAN32.dll
+0x78FE0000 - 0x7901E000 	D:\liaowei\bin\win32\libmwbuiltins.dll
+0x783B0000 - 0x783D2000 	D:\liaowei\sys\java\jre\win32\jre1.4.2\bin\dcpr.dll
+0x7A7A0000 - 0x7A7A5000 	D:\liaowei\bin\win32\nativehg.dll
+0x062C0000 - 0x062C8000 	D:\liaowei\toolbox\matlab\graph2d\private\lineseriesmex.dll
+0x783A0000 - 0x783A5000 	D:\liaowei\sys\java\jre\win32\jre1.4.2\bin\jawt.dll
+0x76FA0000 - 0x7701F000 	C:\WINDOWS\system32\CLBCATQ.DLL
+0x77020000 - 0x770BA000 	C:\WINDOWS\system32\COMRes.dll
+0x76370000 - 0x764DE000 	C:\WINDOWS\system32\shdocvw.dll
+0x765E0000 - 0x76672000 	C:\WINDOWS\system32\CRYPT32.dll
+0x76DB0000 - 0x76DC2000 	C:\WINDOWS\system32\MSASN1.dll
+0x75430000 - 0x754A1000 	C:\WINDOWS\system32\CRYPTUI.dll
+0x76C00000 - 0x76C2E000 	C:\WINDOWS\system32\WINTRUST.dll
+0x76680000 - 0x76722000 	C:\WINDOWS\system32\WININET.dll
+0x76F30000 - 0x76F5C000 	C:\WINDOWS\system32\WLDAP32.dll
+0x77FC0000 - 0x77FD1000 	C:\WINDOWS\system32\Secur32.dll
+0x76D70000 - 0x76D92000 	C:\WINDOWS\system32\appHelp.dll
+0x62830000 - 0x62856000 	C:\WINDOWS\system32\AcSignIcon.dll
+0x74BE0000 - 0x74C0C000 	C:\WINDOWS\system32\OLEACC.dll
+0x75FF0000 - 0x76055000 	C:\WINDOWS\system32\MSVCP60.dll
+0x75EF0000 - 0x75FED000 	C:\WINDOWS\system32\browseui.dll
+0x76060000 - 0x761B6000 	C:\WINDOWS\system32\SETUPAPI.dll
+0x71A90000 - 0x71AA2000 	C:\WINDOWS\system32\MPR.dll
+0x75ED0000 - 0x75ED7000 	C:\WINDOWS\System32\drprov.dll
+0x71B90000 - 0x71B9E000 	C:\WINDOWS\System32\ntlanman.dll
+0x71C50000 - 0x71C65000 	C:\WINDOWS\System32\NETUI0.dll
+0x71C10000 - 0x71C50000 	C:\WINDOWS\System32\NETUI1.dll
+0x71C00000 - 0x71C07000 	C:\WINDOWS\System32\NETRAP.dll
+0x71B70000 - 0x71B83000 	C:\WINDOWS\System32\SAMLIB.dll
+0x75EE0000 - 0x75EE9000 	C:\WINDOWS\System32\davclnt.dll
+0x758D0000 - 0x759C0000 	C:\WINDOWS\system32\MSGINA.dll
+0x759D0000 - 0x75A7E000 	C:\WINDOWS\system32\USERENV.dll
+0x762D0000 - 0x762E0000 	C:\WINDOWS\system32\WINSTA.dll
+0x73540000 - 0x7357D000 	C:\WINDOWS\system32\ODBC32.dll
+0x0A910000 - 0x0A927000 	C:\WINDOWS\system32\odbcint.dll
+0x76950000 - 0x76958000 	C:\WINDOWS\system32\LINKINFO.dll
+0x76960000 - 0x76984000 	C:\WINDOWS\system32\ntshrui.dll
+0x76AF0000 - 0x76B01000 	C:\WINDOWS\system32\ATL.DLL
+0x062A0000 - 0x062A5000 	D:\liaowei\toolbox\matlab\datatypes\cellfun.dll
+0x062B0000 - 0x062B5000 	D:\liaowei\toolbox\matlab\timefun\datenummx.dll
+0x09BB0000 - 0x09BB5000 	D:\liaowei\toolbox\matlab\datafun\sortcellchar.dll
+0x62760000 - 0x62799000 	C:\Program Files\Common Files\Autodesk Shared\AcSignCore16.dll
+0x25410000 - 0x25959000 	C:\WINDOWS\system32\xpsp2res.dll
+0x79E50000 - 0x7A493000 	D:\liaowei\bin\win32\simulink.dll
+0x7A4A0000 - 0x7A4E0000 	D:\liaowei\bin\win32\sl_solver.dll
+0x7A5C0000 - 0x7A69B000 	D:\liaowei\bin\win32\glee.dll
+0x7B540000 - 0x7B95C000 	D:\liaowei\bin\win32\qt-mt312.dll
+0x09BE0000 - 0x09C15000 	D:\liaowei\bin\win32\qaxcontainer.dll
+0x7A6A0000 - 0x7A771000 	D:\liaowei\bin\win32\cg_ir.dll
+0x7A4E0000 - 0x7A50E000 	D:\liaowei\bin\win32\libfixedpoint.dll
+0x7A510000 - 0x7A5BC000 	D:\liaowei\bin\win32\fitools.dll
+0x6E600000 - 0x6E645000 	D:\liaowei\bin\win32\gmp.dll
+0x79D40000 - 0x79E4B000 	D:\liaowei\bin\win32\dastudio.dll
+0x0AA70000 - 0x0AAA7000 	C:\WINDOWS\system32\WINABCX.IME
+0x0AAB0000 - 0x0AAF9000 	C:\WINDOWS\system32\gamepy.ime
+0x73900000 - 0x7392D000 	C:\WINDOWS\system32\JPWB.IME
+0x68D60000 - 0x68E01000 	C:\WINDOWS\system32\DBGHELP.dll
+0x76BC0000 - 0x76BCB000 	C:\WINDOWS\system32\PSAPI.DLL
+
+Heap at VM Abort:
+Heap
+ def new generation   total 2624K, used 854K [0x0ac10000, 0x0aee0000, 0x0b530000)
+  eden space 2368K,  32% used [0x0ac10000, 0x0accdd80, 0x0ae60000)
+  from space 256K,  37% used [0x0ae60000, 0x0ae77d68, 0x0aea0000)
+  to   space 256K,   0% used [0x0aea0000, 0x0aea0000, 0x0aee0000)
+ tenured generation   total 16860K, used 15267K [0x0b530000, 0x0c5a7000, 0x0ec10000)
+   the space 16860K,  90% used [0x0b530000, 0x0c418df0, 0x0c418e00, 0x0c5a7000)
+ compacting perm gen  total 15616K, used 15530K [0x0ec10000, 0x0fb50000, 0x12c10000)
+   the space 15616K,  99% used [0x0ec10000, 0x0fb3aa48, 0x0fb3ac00, 0x0fb50000)
+
+Local Time = Tue May 30 13:47:25 2006
+Elapsed Time = 708
+#
+# The exception above was detected in native code outside the VM
+#
+# Java VM: Java HotSpot(TM) Client VM (1.4.2-b28 mixed mode)
+#
